@@ -1,0 +1,32 @@
+"use client"
+import { useStore } from "./components/Dogs/Dogs"
+import { IoArrowBackSharp } from "react-icons/io5";
+import { Input as DaisyInput } from "react-daisyui"
+import Input  from "./components/Input"
+import { useEffect, useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+export default function Home() {
+  const {currentBreeds, setCurrentBreeds, currentdogs, setcurrentDogs, showModal, setShowModal} = useStore()
+  const [query, setQuery] = useState("")
+  // const [showSideBar, setShowSideBar] = useState(false)
+  useEffect(() => {
+    setcurrentDogs(currentdogs.filter((dog) => dog.toLowerCase().includes(query.toLowerCase())))
+  }, [query])
+    return (
+      <div className={`flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] `}>
+         <GiHamburgerMenu className="md:hidden" fontSize={20} onClick={() => {
+          setShowModal(showModal)
+         }}/>
+  {currentBreeds == null ? <h2 className="text-wrap text-lg font-mono flex flex-col md:flex-row gap-10 items-center"><div className="hidden md:block">Random Dog Images</div>
+   
+  <div className="flex items-center w-full justify-between md:justify-center gap-2 font-sans mt-10 md:mt-[0]">
+               <DaisyInput placeholder="Search Breed" onChange={(e) => setQuery(e.target.value)}  className="p-2 w-full max-w-xs border-solid border border-black"/> <div className="text-[brown] md:hidden ml-[1rem]">GITHUB</div>
+  </div>
+  </h2>:<div className="text-wrap text-lg font-mono flex gap-10 items-center">
+  <IoArrowBackSharp className="cursor-pointer" onClick={() => setCurrentBreeds(null)}/>
+    {currentBreeds}</div>
+  }
+ 
+  <div className="text-red-300 md:block hidden">GITHUB</div>
+      </div>
+    )}
