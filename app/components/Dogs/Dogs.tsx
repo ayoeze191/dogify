@@ -81,7 +81,7 @@ const Dogs = () => {
           };
           fetchDogs()
             // Check if user has scrolled to the bottom
-    }, [currentBreeds, count, currentdogs.length == 0])
+    }, [currentBreeds, count, currentdogs!.length == 0])
     useEffect(() => {
       const handleScroll = () => {
           // Check if user has scrolled to the bottom
@@ -94,7 +94,7 @@ const Dogs = () => {
   }, []);
     return(!loading?
 <div className="grid grid-cols-1 p-4 md:pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-2">
-{(currentdogs !== undefined && typeof currentdogs != "string" )&& currentdogs.map((dog:string, index:number) => (
+{(typeof currentdogs != "string" )&& currentdogs!.map((dog:string, index:number) => (
         <ImageComponent key={index} src={dog}/> // Ensure you return the <p> element
       ))}
 </div>:<div className="w-full flex h-screen items-center justify-center"><Loader/></div>
