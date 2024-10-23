@@ -9,7 +9,7 @@ import Search from "./Search"
 export default  function  Home () {
   const [categories, setCategories] = useState([])
   // const [showSideBar, setShowSideBar] = useState(false)
-  const {showModal, setShowModal} = useStore()
+  const {showModal} = useStore()
 
   const getcategories = async ( ) => {
     const cat = (await api.get("/breeds/list/all")).data.message
