@@ -1,26 +1,31 @@
 import { AxiosError } from "axios";
 
-interface AxiosResponse<T = unknown> {
-  data: T;                
+interface DataType {
+  message: string[];
+}
+
+interface AxiosResponse {
+  data: DataType;                
   status: number;          
   statusText: string;         
 }
 
 interface ErrorResponseData {
-  message: string; 
-  data?: {
-    details?: string; 
-  };
+  message: string;
+  data?: Record<string, unknown>; 
 }
 
-export const response = (res: AxiosResponse, error:AxiosError<ErrorResponseData>) => {
-    if (res !== null) return [res.data, null];
-    return [
-      null,
-      {
-        message: error?.response?.data?.message || "",
-        data: error?.response?.data?.data || {},
-        error,
-      },
-    ];
-  };
+export const handleResponse = (res: AxiosResponse | null, error: AxiosError<ErrorResponseData> | null) => {
+  if (res) {
+    return [res.data, null]; // Return response data if available
+  }
+  
+  return [
+    null,
+    {
+      message: error?.response?.data?.message || "", 
+      data: error?.response?.data?.data || {},       
+      error,                                        
+    },
+  ];
+};

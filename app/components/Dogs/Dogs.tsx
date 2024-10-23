@@ -28,7 +28,7 @@ export const useStore = create<Store>((set) => ({
     query: null,
     setQuery: (q:string) => set(() => ({ query: q })),
     setcurrentDogs: (dogs:string[]) => set(() => ({ currentdogs: dogs })),
-    setCurrentBreeds: (breed:string) => set(() => ({currentBreeds: breed})),
+    setCurrentBreeds: (breed:string | null) => set(() => ({currentBreeds: breed})),
     showModal: false,
     setShowModal: (status:boolean) => set(() => ({showModal: !status})),
   }));
@@ -66,7 +66,7 @@ const Dogs = () => {
           }
           // let current = [...currentdogs]
           // console.log(req.message.length)
-          setcurrentDogs(req.message)
+          setcurrentDogs(req?.message)
           // setcurrentDogs([...currentdogs, ...req.message.slice(count, count + 50)])
           // console.log(currentdogs, req.message.slice(count, count + 50))
           setLoading(false)
