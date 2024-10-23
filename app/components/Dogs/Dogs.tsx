@@ -8,16 +8,17 @@ import { dogApi } from "@/app/utils/service/useDogs";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import Loader from "../ui/Loading";
 interface StoreState {
-  currentdogs: string[];
+  currentdogs: string[] | string | undefined;
   currentBreeds: string | null;
   query: string | null;
   showModal: boolean;
 }
 interface StoreActions {
   setQuery: (q: string) => void;
-  setcurrentDogs: (dogs: string[]) => void;
-  setCurrentBreeds: (breed: string) => void;
+ 
+  setCurrentBreeds: (breed: string | null) => void;
   setShowModal: (status: boolean) => void;
+  setcurrentDogs: (dogs: string[] | string | undefined) => void;
 }
 
 type Store = StoreState & StoreActions;
@@ -27,8 +28,10 @@ export const useStore = create<Store>((set) => ({
     currentBreeds: null,
     query: null,
     setQuery: (q:string) => set(() => ({ query: q })),
-    setcurrentDogs: (dogs:string[]) => set(() => ({ currentdogs: dogs })),
+    // setcurrentDogs: (dogs:string[] | string | undefined) => set(() => ({ currentdogs: dogs })),
     setCurrentBreeds: (breed:string | null) => set(() => ({currentBreeds: breed})),
+    setcurrentDogs: (dog:string[] | string | undefined) => set(() => ({currentdogs: dog})),
+
     showModal: false,
     setShowModal: (status:boolean) => set(() => ({showModal: !status})),
   }));
@@ -38,7 +41,7 @@ const Dogs = () => {
     const { currentdogs, setcurrentDogs, currentBreeds } = useStore()
     const [loading, setLoading] = useState(false)
     const [isError, setIsError] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState<null | string | string[]>(null)
     const [count, setCount] = useState(0)
     const [loadingMore, setLoadingMore] = useState(false)
     console.log(loadingMore, isError, error)
@@ -91,7 +94,7 @@ const Dogs = () => {
   }, []);
     return(!loading?
 <div className="grid grid-cols-1 p-4 md:pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-2">
-{currentdogs.map((dog:string, index:number) => (
+{(currentdogs !== undefined && typeof currentdogs != "string" )&& currentdogs.map((dog:string, index:number) => (
         <ImageComponent key={index} src={dog}/> // Ensure you return the <p> element
       ))}
 </div>:<div className="w-full flex h-screen items-center justify-center"><Loader/></div>

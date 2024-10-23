@@ -1,11 +1,31 @@
-export const response = (res, error) => {
-    if (res !== null) return [res.data, null];
-    return [
-      null,
-      {
-        message: error?.response?.data?.message || "",
-        data: error?.response?.data?.data || {},
-        error,
-      },
-    ];
-  };
+import { AxiosError } from "axios";
+
+interface DataType {
+  message: string[];
+}
+
+interface AxiosResponse {
+  data: DataType;                
+  status: number;          
+  statusText: string;         
+}
+
+interface ErrorResponseData {
+  message: string;
+  data?: Record<string, object>; 
+}
+
+export const response = (res: AxiosResponse | null, error: AxiosError<ErrorResponseData> | null) => {
+  if (res) {
+    return [res.data, null]; // Return response data if available
+  }
+  
+  return [
+    null,
+    {
+      message: error?.response?.data?.message || "", 
+      data: error?.response?.data?.data || {},       
+      error,                                        
+    },
+  ];
+};
