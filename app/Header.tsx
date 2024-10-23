@@ -12,7 +12,7 @@ export default function Home() {
   //   setcurrentDogs(currentdogs!.filter((dog) => dog.toLowerCase().includes(query.toLowerCase())))
   // }, [query])
     return (
-      <div className={`flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] `}>
+      <div className={`flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] md:h-[initial] `}>
          <GiHamburgerMenu className="md:hidden cursor-pointer" fontSize={20} onClick={() => {
           setShowModal(showModal)
          }}/>
