@@ -1,6 +1,10 @@
 "use client"
 import { useStore } from "../Dogs/Dogs"
-const SideItems = ({cat}) => {
+import { categorytype } from "@/app/type"
+interface MyComponentProps {
+    cat:categorytype
+   }
+const SideItems:React.FC<MyComponentProps> = ({cat}) => {
     const {setCurrentBreeds} = useStore()
     return (
         <div key={cat} className="py-4 border-b-[0.5px] border-y-grey hover:bg-slate-400 cursor-pointer px-2 md:px-4" onClick={() => {

@@ -14,7 +14,7 @@ export default function Home() {
   }, [query])
     return (
       <div className={`flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] `}>
-         <GiHamburgerMenu className="md:hidden" fontSize={20} onClick={() => {
+         <GiHamburgerMenu className="md:hidden cursor-pointer" fontSize={20} onClick={() => {
           setShowModal(showModal)
          }}/>
   {currentBreeds == null ? <h2 className="text-wrap text-lg font-mono flex flex-col md:flex-row gap-10 items-center"><div className="hidden md:block">Random Dog Images</div>

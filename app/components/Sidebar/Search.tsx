@@ -1,10 +1,9 @@
 "use client"
 import SideItems from "./SideItem"
-import Input from "../Input"
-import { useState } from "react"
+import React, { useState } from "react"
 import { Input as DaisyInput } from "react-daisyui"
-
-const Search = ({categories}) => {
+import { SearchComponent } from "@/app/type"
+const Search:React.FC<SearchComponent> = ({categories}) => {
     const [query, setQuery] = useState("")
     const filteredCategories = Object.keys(categories).filter((cat) =>
     cat.toLowerCase().includes(query.toLowerCase())
@@ -16,8 +15,8 @@ const Search = ({categories}) => {
              <DaisyInput placeholder="Search Breed" onChange={(e) => setQuery(e.target.value)}  className=" p-2 w-full md:max-w-xs border-solid border border-black"/>
     </div>
         <div className="h-full ">
-        {filteredCategories.map((cat) => 
-          <SideItems cat={cat} key={cat}/>
+        {filteredCategories.map((cat:string, index:number) => 
+          <SideItems cat={cat} key={index}/>
         )}
       </div>
       </div>

@@ -1,11 +1,12 @@
 "use client"
-
-import Image from "next/image"
+import React from 'react';
 import { useEffect, useState, useRef } from "react";
 import Shimmer from "../ui/Shimmer";
 import extractBreeds from "@/app/utils/helper/getBreedFromLink";
-
-const ImageComponent = ({ src }) => {
+interface MyComponentProps {
+ src:string
+}
+const ImageComponent:React.FC<MyComponentProps> = ({ src }) => {
   const [showImage, setShowImage] = useState(false); //  image is in viewport
   const [loaded, setLoaded] = useState(false); //  image has fully loaded
   const imageRef = useRef(null); // for observer
