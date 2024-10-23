@@ -2,15 +2,15 @@
 import { useStore } from "./components/Dogs/Dogs"
 import { IoArrowBackSharp } from "react-icons/io5";
 import { Input as DaisyInput } from "react-daisyui"
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 export default function Home() {
-  const {currentBreeds, setCurrentBreeds, currentdogs, setcurrentDogs, showModal, setShowModal} = useStore()
-  const [query, setQuery] = useState("")
+  const {currentBreeds, setCurrentBreeds,  showModal, setShowModal} = useStore()
+  const [setQuery] = useState("")
   // const [showSideBar, setShowSideBar] = useState(false)
-  useEffect(() => {
-    setcurrentDogs(currentdogs.filter((dog) => dog.toLowerCase().includes(query.toLowerCase())))
-  }, [query])
+  // useEffect(() => {
+  //   setcurrentDogs(currentdogs!.filter((dog) => dog.toLowerCase().includes(query.toLowerCase())))
+  // }, [query])
     return (
       <div className={`flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] `}>
          <GiHamburgerMenu className="md:hidden cursor-pointer" fontSize={20} onClick={() => {
