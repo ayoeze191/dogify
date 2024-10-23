@@ -2,7 +2,6 @@
 import { useStore } from "./components/Dogs/Dogs"
 import { IoArrowBackSharp } from "react-icons/io5";
 import { Input as DaisyInput } from "react-daisyui"
-import Input  from "./components/Input"
 import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 export default function Home() {
