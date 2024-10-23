@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Dogs from "./components/Dogs/Dogs";
 export default function Home() {
   return (
