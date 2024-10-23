@@ -12,11 +12,11 @@ export default function Home() {
   //   setcurrentDogs(currentdogs!.filter((dog) => dog.toLowerCase().includes(query.toLowerCase())))
   // }, [query])
     return (
-      <div className={`flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] md:h-[initial] `}>
+      <div className={` text-black flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[30vh] md:h-[initial] `}>
          <GiHamburgerMenu className="md:hidden cursor-pointer" fontSize={20} onClick={() => {
           setShowModal(showModal)
          }}/>
-  {currentBreeds == null ? <h2 className="text-wrap text-lg font-mono flex flex-col md:flex-row gap-10 items-center"><div className="hidden md:block">Random Dog Images</div>
+  {currentBreeds == null ? <h2 className="text-wrap text-lg font-mono flex flex-col md:flex-row gap-10 items-center"><div className="hidden md:block text-black">Random Dog Images</div>
    
   <div className="flex items-center w-full justify-between md:justify-center gap-2 font-sans mt-10 md:mt-[0]">
                <DaisyInput placeholder="Search Breed" 
