@@ -10,12 +10,13 @@ interface AxiosResponse {
   statusText: string;         
 }
 
-interface ErrorResponseData {
+export interface ErrorResponseData {
   message: string;
   data?: Record<string, object>; 
 }
 
-export const response = (res: AxiosResponse | null, error: AxiosError<ErrorResponseData> | null) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const response = (res: AxiosResponse | null, error: AxiosError<ErrorResponseData> | null | any) => {
   if (res) {
     return [res.data, null]; // Return response data if available
   }

@@ -1,6 +1,6 @@
 import { response } from "../helper/response";
 import axiosInstance from "../axios";
-
+// import { ErrorResponseData } from "../helper/response";
 export const dogApi = () => ({
   async getAllBreads() {
     try {
@@ -19,7 +19,7 @@ export const dogApi = () => ({
         return response(null, error);
       }
     },
-    async getRandomImagesFromBreed(breed, count = "") {
+    async getRandomImagesFromBreed(breed:string, count = "") {
       try {
         const req = await axiosInstance.get(
           `breed/${breed}/images/random/${count}`
@@ -30,7 +30,7 @@ export const dogApi = () => ({
       }
     },
   }),
-  async getAllImagesInABreed(breed) {
+  async getAllImagesInABreed(breed:string) {
     try {
       const req = await axiosInstance.get(`breed/${breed}/images`);
       return response(req, null);
