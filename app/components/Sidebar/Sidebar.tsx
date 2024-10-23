@@ -3,8 +3,7 @@
 
 import api from "../../utils/axios"
 import { useEffect, useState } from "react"
-import Input  from "../Input"
-import SideItems from "./SideItem"
+
 import { useStore } from "../Dogs/Dogs"
 import Search from "./Search"
 export default  function  Home () {
