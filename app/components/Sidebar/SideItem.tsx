@@ -13,5 +13,4 @@ const SideItems:React.FC<MyComponentProps> = ({cat}) => {
         }}>{cat.toUpperCase()}</div> 
     )
 }
-
 export default SideItems
