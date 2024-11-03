@@ -44,6 +44,7 @@ const Dogs = () => {
     const [error, setError] = useState<null | string | string[]>(null)
     const [count, setCount] = useState(0)
     const [loadingMore, setLoadingMore] = useState(false)
+    console.log(isError, error, loadingMore)
     const filteredDogs = (typeof currentdogs == "object" && query !== null) ? currentdogs.filter((dog) => extractBreeds(dog).toLowerCase().includes(query!.toLowerCase())) : currentdogs
     const getDogs = async() => {
       if(currentBreeds == null && count > 0){

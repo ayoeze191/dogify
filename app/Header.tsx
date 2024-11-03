@@ -2,8 +2,7 @@
 import { useStore } from "./components/Dogs/Dogs"
 import { IoArrowBackSharp } from "react-icons/io5";
 import { Input as DaisyInput } from "react-daisyui"
-import extractBreeds from "@/app/utils/helper/getBreedFromLink";
-import {  useState } from "react";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 export default function Home() {
   const {currentBreeds, setCurrentBreeds,  showModal, setShowModal, setQuery} = useStore()
