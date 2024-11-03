@@ -98,5 +98,4 @@ const Dogs = () => {
 </div>:<div className="w-full flex h-screen items-center justify-center"><Loader/></div>
     )
 }
-
 export default Dogs
