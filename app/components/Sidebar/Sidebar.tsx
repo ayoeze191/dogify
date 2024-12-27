@@ -6,12 +6,6 @@ import { useEffect, useState } from "react";
 import { useStore } from "../Dogs/Dogs";
 import Search from "./Search";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import {
-  DoorClosedIcon,
-  ShieldCloseIcon,
-  SidebarCloseIcon,
-} from "lucide-react";
-import { IoCloseCircleOutline } from "react-icons/io5";
 export default function Home() {
   const [categories, setCategories] = useState([]);
   // const [showSideBar, setShowSideBar] = useState(false)
