@@ -12,7 +12,7 @@ export default function Home() {
     return (
       <div className={` text-black flex justify-between flex-col md:flex-row md:items-center pt-10 mb-10 md:pr-4 px-4 h-[20vh] md:h-[initial] `}>
          <GiHamburgerMenu className="md:hidden cursor-pointer" fontSize={20} onClick={() => {
-          setShowModal(showModal)
+          setShowModal(!showModal)
          }}/>
   {currentBreeds == null ? <h2 className="text-wrap text-lg font-mono flex flex-col md:flex-row gap-10 items-center"><div className="hidden md:block text-black">Random Dog Images</div>
    

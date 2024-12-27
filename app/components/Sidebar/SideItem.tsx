@@ -5,11 +5,12 @@ interface MyComponentProps {
     cat:categorytype
    }
 const SideItems:React.FC<MyComponentProps> = ({cat}) => {
-    const {setCurrentBreeds,setShowModal, showModal} = useStore()
+    const {setCurrentBreeds,setShowModal} = useStore()
     return (
         <div key={cat} className="py-4 border-b-[0.5px] border-y-grey hover:bg-slate-400 cursor-pointer px-2 md:px-4 text-black" onClick={() => {
             setCurrentBreeds(cat)
-            setShowModal(!showModal)
+            // console.log(showModal, "py-4")
+            setShowModal(false)
         }}>{cat.toUpperCase()}</div> 
     )
 }

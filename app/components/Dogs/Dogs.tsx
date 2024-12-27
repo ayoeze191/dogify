@@ -33,7 +33,7 @@ export const useStore = create<Store>((set) => ({
     setCurrentBreeds: (breed:string | null) => set(() => ({currentBreeds: breed})),
     setcurrentDogs: (dog:string[] | string | undefined) => set(() => ({currentdogs: dog})),
     showModal: false,
-    setShowModal: (status:boolean) => set(() => ({showModal: !status})),
+    setShowModal: (status:boolean) => set(() => ({showModal: status})),
   }));
  
 
