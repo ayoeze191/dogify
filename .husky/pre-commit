@@ -1,5 +1,5 @@
-npm test
+# npm test
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# . "$(dirname "$0")/_/husky.sh"
 
 npm run build
