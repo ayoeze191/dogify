@@ -5,7 +5,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 // import { GiSittingDog } from "react-icons/gi";
 import Head from "next/head";
-import SideBarMobile from "./components/Sidebar/SideBarMobile";
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
 //   variable: "--font-geist-sans",
@@ -36,7 +35,6 @@ export default function RootLayout({
       </Head>
       <body className="flex w-full h-full relative">
         <Sidebar />
-        <SideBarMobile />
         <div className="w-[] md:ml-[340px] bodycontainer">
           <Header />
           <div className="">{children}</div>
